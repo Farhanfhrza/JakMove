@@ -35,8 +35,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [MobileBookingController::class, 'dashboard'])->name('mobile.dashboard');
 
         Route::prefix('ticket')->group(function () {
-            Route::get('/{id}', [MobileBookingController::class, 'show'])->name('mobile.ticket.detail');
             Route::get('/type', [MobileBookingController::class, 'chooseTransport'])->name('mobile.choose.transport');
+            Route::get('/{id}', [MobileBookingController::class, 'show'])->name('mobile.ticket.detail');
             Route::get('/stops/{transportType}', [MobileBookingController::class, 'chooseStops'])->name('mobile.choose.stops');
             Route::post('/review', [MobileBookingController::class, 'reviewTicket'])->name('mobile.ticket.review');
             Route::post('/pay', [MobileBookingController::class, 'payTicket'])->name('mobile.ticket.pay');
